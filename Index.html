@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowels and Consonants Calculator</title>
+    <style>
+        .container{
+            width: 370px;
+            text-align: center;
+            margin: 10px auto;
+         
+            
+        }
+        .content{
+            background-color: aqua;
+            padding: 2px;
+        }
+        .result{
+            display: flex;
+             justify-content: space-around;
+        }
+    </style>
+</head>
+<body class="container">
+    <div class="content">
+
+        <div>
+            <label for="string">Enter a string</label>
+            <input id="string" type="text">
+            <button onclick="handleCount()">Count</button> 
+           </div>
+           <div class="result">
+            <p>Vowels: <span id="vowelCount">0</span></p>
+            <p>Consonants: <span id="consonantCount">0</span></p>
+           </div>
+
+    </div>
+   
+
+
+
+   <script>
+
+    const handleCount = () =>{
+        const inputSting = document.getElementById('string').value;
+        console.log(inputSting);
+
+        //using regex
+        let regexForVowels = /[aeiou]/gi;
+        let regexForConsonants = /[^aeiou\s]/gi;
+        console.log(`vowelCounts: ${inputSting.match(regexForVowels).length}`)
+        console.log(`consonantCounts: ${inputSting.match(regexForConsonants).length}`);
+
+        document.getElementById('vowelCount').textContent= `${inputSting.match(regexForVowels).length}`
+        document.getElementById('consonantCount').textContent= `${inputSting.match(regexForConsonants).length}`;
+    }
+
+
+   </script>
+</body>
+</html>
